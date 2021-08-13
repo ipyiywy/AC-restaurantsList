@@ -20,13 +20,11 @@ res.render('show', { restaurant: restaurant })
 })
 
 app.get('/search', (req, res) => {
+const keyword = req.query.keyword
 const restaurants = restaurantsList.results.filter(restaurant => { return restaurant.name.toLowerCase().includes(req.query.keyword.toLowerCase())})
-if(restaurantsi.trim().length = 0){
-res.render('index', {restaurants: restaurants, keyword: req.query.keyword })
-} else {
-res.render('index', { restaurants: 
-}
+res.render('index', {restaurants: restaurants, keyword: keyword })
 })
+
 
 app.listen(port, () => {
 console.log(`Express is running on http://localhost:${port}`)
